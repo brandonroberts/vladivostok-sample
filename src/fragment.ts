@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'home-page',
+  directives: [],
+  template: `
+    <h2>Hash</h2>
+
+    Fragment: {{ fragment | async }}
+  `
+})
+export class FragmentPage implements OnInit {
+  fragment: any;
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.fragment = this.router.currentState.fragment;
+  }
+}

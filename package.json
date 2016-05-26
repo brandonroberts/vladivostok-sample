@@ -1,0 +1,14 @@
+{
+  "name": "vladivostok-sample",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.2.0"
+  }
+}
