@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'home-page',
+  selector: 'search-page',
   directives: [],
   template: `
     <h2>Search</h2>
