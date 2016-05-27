@@ -1,7 +1,6 @@
 import { Type } from '@angular/core';
 export declare type RouterConfig = Route[];
 export interface Route {
-    name: string;
     index?: boolean;
     path?: string;
     component: Type | string;
