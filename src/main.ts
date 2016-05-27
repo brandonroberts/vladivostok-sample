@@ -1,7 +1,11 @@
 //main entry point
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/do';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {ComponentResolver, ApplicationRef} from '@angular/core';
-import {App} from './app';
+import {AppComponent} from './app.component';
 import {BrowserPlatformLocation} from '@angular/platform-browser';
 import {PathLocationStrategy, LocationStrategy, PlatformLocation, Location} from '@angular/common';
 import {UrlSerializer, DefaultUrlSerializer, RouterOutletMap, Router} from '@angular/router';
@@ -21,7 +25,7 @@ const ROUTER_PROVIDERS = [
   }
 ];
 
-bootstrap(App, [
+bootstrap(AppComponent, [
   ROUTER_PROVIDERS
 ])
 .catch(err => console.error(err));
