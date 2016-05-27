@@ -37,7 +37,7 @@ export class CrisisListComponent implements OnInit {
 
   onSelect(crisis: Crisis) {
     // Absolute link
-     this.router.navigate(['/crisis-center/center', crisis.id]);
+     this.router.navigate(['crisis-center', crisis.id]);
   }
 }
 

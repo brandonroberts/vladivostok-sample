@@ -66,7 +66,6 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
-    this.editName = this.crisis.name;
     this.gotoCrises();
   }
 
@@ -84,7 +83,7 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     //this.router.navigateByUrl(`/crisis-center/home;foo=foo?id=${crisisId}`);
 
     // Relative link
-    this.router.navigate(['/crisis-center/home', {foo: 'foo'}], { queryParameters: { id: crisisId } });
+    this.router.navigate(['../home', {foo: 'foo'}], { relativeTo: this.route, queryParameters: { id: crisisId } });
   }
 }
 
