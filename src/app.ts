@@ -10,11 +10,11 @@ import { ROUTES } from './routes';
     <h1 class="title">Router Blog</h1>
 
     <nav>
-      <a routerLink="/">Home</a>
-      <a routerLink="/blog/posts">Blog</a>
-      <a routerLink="/blog/post/1">Post 1</a>
-      <a routerLink="/search?query=test">Search</a>
-      <a routerLink="/fragment#myanchor">Hash</a>
+      <a [routerLink]="['/']">Home</a>
+      <a [routerLink]="['/blog', 'posts']">Blog</a>
+      <a [routerLink]="['/blog', 'post', 1]">Post 1</a>
+      <a href="/search?query=test">Search</a>
+      <a href="/fragment#myanchor">Hash</a>
     </nav>
 
     <router-outlet></router-outlet>

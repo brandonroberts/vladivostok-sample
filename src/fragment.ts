@@ -15,6 +15,6 @@ export class FragmentPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.fragment = this.router.currentState.fragment;
+    this.fragment = this.router.routerState.fragment;
   }
 }

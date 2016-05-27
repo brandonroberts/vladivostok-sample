@@ -17,6 +17,6 @@ export class SearchPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.params = this.router.currentState.queryParams;
+    this.params = this.router.routerState.queryParams;
   }
 }
