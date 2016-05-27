@@ -32,9 +32,11 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route
       .params
-      .map(params => params['id'])
-      .mergeMap(id => this.service.getHero(id))
-      .subscribe(hero => this.hero = hero);
+      .subscribe(params => {
+        let id =+ params['id'];
+        this.service.getHero(id)
+          .then(hero => this.hero = hero)
+      });
   }
 
   ngOnDestroy() {

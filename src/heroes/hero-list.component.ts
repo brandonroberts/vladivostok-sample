@@ -1,5 +1,4 @@
-// TODO SOMEDAY: Feature Componetized like CrisisCenter
-import { Component, OnInit }          from '@angular/core';
+import { Component, OnInit, OnDestroy }          from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Hero, HeroService}   from './hero.service';
@@ -8,7 +7,7 @@ import { Hero, HeroService}   from './hero.service';
   template: `
     <h2>HEROES</h2>
     <ul class="items">
-      <li *ngFor="let hero of heroes | async"
+      <li *ngFor="let hero of heroes"
         [class.selected]="isSelected(hero)"
         (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
@@ -16,8 +15,9 @@ import { Hero, HeroService}   from './hero.service';
     </ul>
   `
 })
-export class HeroListComponent implements OnInit {
+export class HeroListComponent implements OnInit, OnDestroy {
   heroes: Hero[];
+  sub: any;
 
   private selectedId: number;
 
@@ -27,12 +27,18 @@ export class HeroListComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   ngOnInit(){
-    this.heroes = this.router
+    this.sub = this.router
       .routerState
       .queryParams
-      .map(params => params['id'])
-      .do(id => this.selectedId =+ id)
-      .mergeMap(id => this.service.getHeroes());
+      .subscribe(params => {
+        this.selectedId =+ params['id'];
+        this.service.getHeroes()
+          .then(heroes => this.heroes = heroes);
+      });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   isSelected(hero: Hero) { return hero.id === this.selectedId; }

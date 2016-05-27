@@ -26,7 +26,6 @@ import { DialogService } from '../dialog.service';
 export class CrisisDetailComponent implements OnInit, OnDestroy {
   crisis: Crisis;
   editName: string;
-  private curSegment: RouteSegment;
   private sub: any;
 
   constructor(
@@ -39,15 +38,17 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route
       .params
-      .map(params => params['id'])
-      .mergeMap((id) => this.service.getCrisis(id))
-      .subscribe(crisis => {
-        if (crisis) {
-          this.editName = crisis.name;
-          this.crisis = crisis;
-        } else { // id not found
-          this.gotoCrises();
-        }
+      .subscribe(params => {
+        let id =+ params['id'];
+        this.service.getCrisis(id)
+          .then(crisis => {
+            if (crisis) {
+              this.editName = crisis.name;
+              this.crisis = crisis;
+            } else { // id not found
+              this.gotoCrises();
+            }
+          });
       });
   }
 
