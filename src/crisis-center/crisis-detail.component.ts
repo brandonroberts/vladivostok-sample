@@ -31,7 +31,6 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
   constructor(
     private service: CrisisService,
     private router: Router,
-    private dialog: DialogService,
     private route: ActivatedRoute
     ) { }
 
@@ -52,16 +51,6 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-  /*routerCanDeactivate(): any {
-    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
-    if (!this.crisis || this.crisis.name === this.editName) {
-      return true;
-    }
-    // Otherwise ask the user with the dialog service and return its
-    // promise which resolves to true or false when the user decides
-    return this.dialog.confirm('Discard changes?');
-  }*/
-
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
@@ -80,11 +69,7 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     // Pass along the hero id if available
     // so that the CrisisListComponent can select that hero.
     // Add a totally useless `foo` parameter for kicks.
-    // Absolute link
-    //this.router.navigateByUrl(`/crisis-center/home;foo=foo?id=${crisisId}`);
-
-    // Relative link
-    this.router.navigate(['../', {foo: 'foo'}], { relativeTo: this.route, queryParameters: { id: crisisId } });
+    this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
   }
 }
 
