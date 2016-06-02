@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
-import { CrisisCenterRoutes } from './crisis-center/crisis-center.routes';
-import { HeroesRoutes } from './heroes/heroes.routes';
-
 import { DialogService }         from './dialog.service';
 import { HeroService }           from './heroes/hero.service';
 
@@ -24,12 +21,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.resetConfig([
-      CrisisCenterRoutes.CRISIS_CENTER,
-      HeroesRoutes.HERO_LIST,
-      HeroesRoutes.HERO_DETAIL
-    ]);
-
     this.router.navigate(['/crisis-center/home']);
   }
 }
