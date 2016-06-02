@@ -25,11 +25,12 @@ export declare class ActivatedRouteSnapshot {
     outlet: string;
     component: Type | string;
     _resolvedComponentFactory: ComponentFactory<any>;
-    _routeConfig: Route;
-    constructor(urlSegments: UrlSegment[], params: Params, outlet: string, component: Type | string, routeConfig: Route);
+    _routeConfig: Route | null;
+    _lastUrlSegment: UrlSegment;
+    constructor(urlSegments: UrlSegment[], params: Params, outlet: string, component: Type | string, routeConfig: Route | null, lastUrlSegment: UrlSegment);
 }
 export declare class RouterStateSnapshot extends Tree<ActivatedRouteSnapshot> {
     queryParams: Params;
-    fragment: string;
-    constructor(root: TreeNode<ActivatedRouteSnapshot>, queryParams: Params, fragment: string);
+    fragment: string | null;
+    constructor(root: TreeNode<ActivatedRouteSnapshot>, queryParams: Params, fragment: string | null);
 }
