@@ -5,5 +5,6 @@ export interface Route {
     path?: string;
     component: Type | string;
     outlet?: string;
+    canActivate?: any[];
     children?: Route[];
 }
