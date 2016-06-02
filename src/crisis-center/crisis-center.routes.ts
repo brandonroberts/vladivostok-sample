@@ -6,8 +6,9 @@ export const CrisisCenterRoutes = {
   CRISIS_CENTER: {
     path: '/crisis-center',
     component: CrisisCenterComponent,
+    index: true,
     children: [
-      { path: '/home', component: CrisisListComponent },
+      { path: '/', component: CrisisListComponent, index: true },
       { path: '/:id', component: CrisisDetailComponent }
     ]
   }

@@ -84,7 +84,7 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     //this.router.navigateByUrl(`/crisis-center/home;foo=foo?id=${crisisId}`);
 
     // Relative link
-    this.router.navigate(['../home', {foo: 'foo'}], { relativeTo: this.route, queryParameters: { id: crisisId } });
+    this.router.navigate(['../', {foo: 'foo'}], { relativeTo: this.route, queryParameters: { id: crisisId } });
   }
 }
 
