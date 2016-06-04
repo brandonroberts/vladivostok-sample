@@ -48,7 +48,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     // Pass along the hero id if available
     // so that the HeroList component can select that hero.
     // Add a totally useless `foo` parameter for kicks.
-    this.router.navigate(['/heroes', {foo: 'foo'}], { queryParameters: { id: heroId } });
+    this.router.navigate(['/heroes'], { queryParameters: { id: heroId, foo: 'foo' } });
   }
 }
 

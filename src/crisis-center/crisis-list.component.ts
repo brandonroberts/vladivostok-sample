@@ -27,9 +27,8 @@ export class CrisisListComponent implements OnInit, OnDestroy {
   isSelected(crisis: Crisis) { return crisis.id === this.selectedId; }
 
   ngOnInit() {
-    this.sub = this.router
-      .routerState
-      .queryParams
+    this.sub = this.route
+      .params
       .subscribe(params => {
         this.selectedId =+ params['id'];
         this.service.getCrises()

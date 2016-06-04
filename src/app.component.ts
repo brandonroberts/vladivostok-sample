@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
-
-import { DialogService }         from './dialog.service';
-import { HeroService }           from './heroes/hero.service';
+import { HeroService } from './heroes/hero.service';
 
 @Component({
   selector: 'my-app',
@@ -14,14 +12,14 @@ import { HeroService }           from './heroes/hero.service';
     </nav>
     <router-outlet></router-outlet>
   `,
-  providers:  [DialogService, HeroService],
+  providers:  [HeroService],
   directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.navigate(['/']);
+    //this.router.navigate(['/']);
   }
 }
 
