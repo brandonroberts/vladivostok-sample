@@ -16,8 +16,9 @@ export declare class ActivatedRoute {
     params: Observable<Params>;
     outlet: string;
     component: Type | string;
+    _futureSnapshot: ActivatedRouteSnapshot;
     snapshot: ActivatedRouteSnapshot;
-    constructor(urlSegments: Observable<UrlSegment[]>, params: Observable<Params>, outlet: string, component: Type | string, snapshot: ActivatedRouteSnapshot);
+    constructor(urlSegments: Observable<UrlSegment[]>, params: Observable<Params>, outlet: string, component: Type | string, futureSnapshot: ActivatedRouteSnapshot);
 }
 export declare class ActivatedRouteSnapshot {
     urlSegments: UrlSegment[];
@@ -34,3 +35,4 @@ export declare class RouterStateSnapshot extends Tree<ActivatedRouteSnapshot> {
     fragment: string | null;
     constructor(root: TreeNode<ActivatedRouteSnapshot>, queryParams: Params, fragment: string | null);
 }
+export declare function advanceActivatedRoute(route: ActivatedRoute): void;
