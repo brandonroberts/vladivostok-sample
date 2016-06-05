@@ -33,7 +33,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     this.sub = this.route
       .params
       .subscribe(params => {
-        let id =+ params['id'];
+        let id = +params['id'];
         this.service.getHero(id)
           .then(hero => this.hero = hero);
       });

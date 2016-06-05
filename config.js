@@ -45,6 +45,7 @@ System.config({
       defaultExtension: 'js'
     },
     'rxjs': {
+      main: 'index.js',
       defaultExtension: 'js'
     }
   }

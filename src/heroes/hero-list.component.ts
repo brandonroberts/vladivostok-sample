@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy }          from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Hero, HeroService}   from './hero.service';
@@ -26,12 +26,12 @@ export class HeroListComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.sub = this.router
       .routerState
       .queryParams
       .subscribe(params => {
-        this.selectedId =+ params['id'];
+        this.selectedId = +params['id'];
         this.service.getHeroes()
           .then(heroes => this.heroes = heroes);
       });
