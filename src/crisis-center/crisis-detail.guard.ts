@@ -3,6 +3,7 @@ import { CanDeactivate } from '@angular/router';
 import { DialogService } from '../dialog.service';
 import { CrisisDetailComponent } from './crisis-detail.component';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
 export class CanDeactivateCrisisDetail implements CanDeactivate<CrisisDetailComponent> {
@@ -15,6 +16,8 @@ export class CanDeactivateCrisisDetail implements CanDeactivate<CrisisDetailComp
     }
     // Otherwise ask the user with the dialog service and return its
     // promise which resolves to true or false when the user decides
-    return this.dialog.confirm('Discard changes?');
+    let p = this.dialog.confirm('Discard changes?');
+    let o = Observable.fromPromise(p);
+    return o;
   }
 }
