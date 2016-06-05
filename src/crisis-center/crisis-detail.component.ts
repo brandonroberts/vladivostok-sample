@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Crisis, CrisisService } from './crisis.service';
-import { DialogService } from '../dialog.service';
 
 @Component({
   template: `
@@ -38,7 +37,7 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     this.sub = this.route
       .params
       .subscribe(params => {
-        let id =+ params['id'];
+        let id = +params['id'];
         this.service.getCrisis(id)
           .then(crisis => {
             if (crisis) {

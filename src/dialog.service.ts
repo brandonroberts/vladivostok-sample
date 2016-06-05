@@ -10,9 +10,18 @@ export class DialogService {
    * Ask user to confirm an action. `message` explains the action and choices.
    * Returns promise resolving to `true`=confirm or `false`=cancel
    */
-  confirm(message?: string) {
-    return window.confirm(message || 'Is it OK?');
-  }
+  confirm(message?: string): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      setTimeout(() => {
+        let ok = window.confirm(message || 'Is it OK?') ;
+        return resolve(ok);
+        },  0);
+    })
+    // Todo: good during development; delete
+    .then(ok => {
+      console.log('confirm said: ' + ok);
+      return ok;
+    });
 }
 
 
