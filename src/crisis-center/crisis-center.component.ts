@@ -11,7 +11,7 @@ import { CrisisService }         from './crisis.service';
   providers:  [CrisisService]
 })
 
-export class CrisisCenterComponent { }
+export default class CrisisCenterComponent { }
 
 
 /*

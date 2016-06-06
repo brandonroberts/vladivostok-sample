@@ -14,7 +14,7 @@ import { Crisis, CrisisService } from './crisis.service';
     </ul>
   `,
 })
-export class CrisisListComponent implements OnInit, OnDestroy {
+export default class CrisisListComponent implements OnInit, OnDestroy {
   crises: Crisis[];
   private selectedId: number;
   sub: any;
