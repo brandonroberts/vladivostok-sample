@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { DialogService } from '../dialog.service';
 import { CrisisDetailComponent } from './crisis-detail.component';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class CanDeactivateCrisisDetail implements CanDeactivate {
+export class CanDeactivateCrisisDetail implements CanDeactivate<CrisisDetailComponent> {
   constructor(private dialog: DialogService) {}
 
   canDeactivate(component: CrisisDetailComponent): Observable<boolean> | boolean {

@@ -1,26 +1,20 @@
 System.config({
-  //use typescript for compilation
-  transpiler: 'typescript',
-  //typescript compiler options
-  typescriptOptions: {
-    emitDecoratorMetadata: true
-  },
   //map tells the System loader where to look for things
   map: {
-    app: './src',
-    '@angular/core': 'http://npmcdn.com/@angular/core@2.0.0-rc.1',
-    '@angular/common': 'http://npmcdn.com/@angular/common@2.0.0-rc.1',
-    '@angular/compiler': 'http://npmcdn.com/@angular/compiler@2.0.0-rc.1',
-    '@angular/platform-browser': 'http://npmcdn.com/@angular/platform-browser@2.0.0-rc.1',
-    '@angular/platform-browser-dynamic': 'http://npmcdn.com/@angular/platform-browser-dynamic@2.0.0-rc.1',
-    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-    '@angular/router': './router'
+    app: 'dist/src',
+    '@angular/core': 'node_modules/@angular/core',
+    '@angular/common': 'node_modules/@angular/common',
+    '@angular/compiler': 'node_modules/@angular/compiler',
+    '@angular/platform-browser': 'node_modules/@angular/platform-browser',
+    '@angular/platform-browser-dynamic': 'node_modules/@angular/platform-browser-dynamic',
+    'rxjs': 'node_modules/rxjs',
+    '@angular/router': 'node_modules/@angular/router/build/src'
   },
   //packages defines our app package
   packages: {
     app: {
-      main: './main.ts',
-      defaultExtension: 'ts'
+      main: './main.js',
+      defaultExtension: 'js'
     },
     '@angular/core': {
       main: 'core.umd.js',
@@ -48,6 +42,9 @@ System.config({
     },
     '@angular/router': {
       main: 'index.js',
+      defaultExtension: 'js'
+    },
+    'rxjs': {
       defaultExtension: 'js'
     }
   }
