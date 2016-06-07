@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { Component } from '@angular/core';
+
+import { provideRouter, Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { routes } from './app.routes';
+import { CanDeactivateCrisisDetail } from './crisis-center/crisis-detail.guard';
+
 import { HeroService } from './heroes/hero.service';
+import { DialogService } from './dialog.service';
 
 @Component({
   selector: 'my-app',
@@ -12,15 +17,16 @@ import { HeroService } from './heroes/hero.service';
     </nav>
     <router-outlet></router-outlet>
   `,
-  providers:  [HeroService],
+  providers:  [
+    HeroService,
+    DialogService,
+    provideRouter(routes),
+    CanDeactivateCrisisDetail
+  ],
   directives: [ROUTER_DIRECTIVES]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private router: Router) {}
-
-  ngOnInit() {
-    //this.router.navigate(['/']);
-  }
 }
 
 
