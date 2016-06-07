@@ -3,8 +3,8 @@ import { CrisisListComponent }   from './crisis-list.component';
 import { CrisisCenterComponent } from './crisis-center.component';
 import { CanDeactivateCrisisDetail } from './crisis-detail.guard';
 
-export const CrisisCenterRoutes = {
-  CRISIS_CENTER: {
+export const CrisisCenterRoutes = [
+  {
     path: '/crisis-center',
     component: CrisisCenterComponent,
     index: true,
@@ -13,4 +13,4 @@ export const CrisisCenterRoutes = {
       { path: '/:id', component: CrisisDetailComponent, canDeactivate: [CanDeactivateCrisisDetail] }
     ]
   }
-};
+];
