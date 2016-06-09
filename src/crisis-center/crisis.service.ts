@@ -1,4 +1,4 @@
-
+/// TODO: Clean this up
 export class Crisis {
   constructor(public id: number, public name: string) { }
 }
@@ -11,6 +11,8 @@ const CRISES = [
 ];
 
 let crisesPromise = Promise.resolve(CRISES);
+
+///////////
 
 import { Injectable } from '@angular/core';
 
@@ -26,7 +28,6 @@ export class CrisisService {
       .then(crises => crises.filter(c => c.id === +id)[0]);
   }
 
-
   addCrisis(name: string) {
     name = name.trim();
     if (name) {
@@ -35,10 +36,3 @@ export class CrisisService {
     }
   }
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

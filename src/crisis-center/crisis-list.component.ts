@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute }       from '@angular/router';
 
 import { Crisis, CrisisService } from './crisis.service';
 
@@ -41,14 +41,7 @@ export class CrisisListComponent implements OnInit, OnDestroy {
   }
 
   onSelect(crisis: Crisis) {
-    // Absolute link
+    // Navigate with absolute link
      this.router.navigate(['/crisis-center', crisis.id]);
   }
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

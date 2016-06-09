@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute }       from '@angular/router';
+import { Observable }                   from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
 
 import { Crisis, CrisisService } from './crisis.service';
-
-import { DialogService } from '../dialog.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromPromise';
+import { DialogService }         from '../dialog.service';
 
 @Component({
   template: `
@@ -89,10 +88,3 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     return o;
   }
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
