@@ -2,13 +2,8 @@ System.config({
   //map tells the System loader where to look for things
   map: {
     app: 'dist/src',
-    '@angular/core': 'node_modules/@angular/core',
-    '@angular/common': 'node_modules/@angular/common',
-    '@angular/compiler': 'node_modules/@angular/compiler',
-    '@angular/platform-browser': 'node_modules/@angular/platform-browser',
-    '@angular/platform-browser-dynamic': 'node_modules/@angular/platform-browser-dynamic',
+    '@angular': 'node_modules/@angular',
     'rxjs': 'node_modules/rxjs',
-    '@angular/router': 'node_modules/@angular/router/build/src'
   },
   //packages defines our app package
   packages: {
