@@ -22,6 +22,8 @@ export class DialogService {
       console.log('confirm said: ' + ok);
       return ok;
     });
+
+  }
 }
 
 
