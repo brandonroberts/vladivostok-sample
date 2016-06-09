@@ -55,6 +55,7 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
+    this.editName = this.crisis.name;
     this.gotoCrises();
   }
 
