@@ -3,6 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Crisis, CrisisService } from './crisis.service';
 
+import { DialogService } from '../dialog.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
+
 @Component({
   template: `
   <div *ngIf="crisis">
@@ -30,7 +34,8 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
   constructor(
     private service: CrisisService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialogService: DialogService
     ) { }
 
   ngOnInit() {
@@ -70,6 +75,18 @@ export class CrisisDetailComponent implements OnInit, OnDestroy {
     // so that the CrisisListComponent can select that hero.
     // Add a totally useless `foo` parameter for kicks.
     this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    let p = this.dialogService.confirm('Discard changes?');
+    let o = Observable.fromPromise(p);
+    return o;
   }
 }
 

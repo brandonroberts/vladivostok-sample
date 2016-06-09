@@ -1,4 +1,4 @@
-//main entry point
+// main entry point
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/of';
@@ -8,12 +8,10 @@ import {AppComponent} from './app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { CrisisDetailGuard } from './crisis-center/crisis-detail.guard';
-import { DialogService } from './dialog.service';
 
 
 bootstrap(AppComponent, [
   provideRouter(routes),
-      DialogService,
-    CrisisDetailGuard
+  CrisisDetailGuard
 ])
 .catch(err => console.error(err));

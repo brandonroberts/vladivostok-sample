@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { DialogService } from './dialog.service';
 import { HeroService } from './heroes/hero.service';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -14,6 +14,7 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router';
     <router-outlet></router-outlet>
   `,
   providers:  [
+    DialogService,
     HeroService
   ],
   directives: [ROUTER_DIRECTIVES]
