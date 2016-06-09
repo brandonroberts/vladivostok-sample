@@ -5,7 +5,7 @@ import { BrowserPlatformLocation } from '@angular/platform-browser';
 
 import { provideRouter, Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { routes } from './app.routes';
-import { CanDeactivateCrisisDetail } from './crisis-center/crisis-detail.guard';
+import { CrisisDetailGuard } from './crisis-center/crisis-detail.guard';
 
 import { HeroService } from './heroes/hero.service';
 import { DialogService } from './dialog.service';
@@ -25,7 +25,7 @@ import { DialogService } from './dialog.service';
     DialogService,
     provideRouter(routes),
     {provide: PlatformLocation, useClass: BrowserPlatformLocation},
-    CanDeactivateCrisisDetail
+    CrisisDetailGuard
   ],
   directives: [ROUTER_DIRECTIVES]
 })

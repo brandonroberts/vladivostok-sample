@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
-export class CanDeactivateCrisisDetail implements CanDeactivate<CrisisDetailComponent> {
+export class CrisisDetailGuard implements CanDeactivate<CrisisDetailComponent> {
   constructor(private dialog: DialogService) {}
 
   canDeactivate(component: CrisisDetailComponent): Observable<boolean> | boolean {
